@@ -1,7 +1,14 @@
 import type { NextConfig } from "next";
 
+module.exports = {
+  devIndicators: {
+    buildActivity: false,
+    devIdicator: false,
+  },
+}
+
 const nextConfig: NextConfig = {
-  /* config options here */
+  
 };
 
 export default nextConfig;
