@@ -8,7 +8,7 @@ module.exports = {
         hostname: 'media.istockphoto.com',
         pathname: '/**',
       },
-    ],domains: ["media.istockphoto.com"],
+    ],
   },
   devIndicators: {
     buildActivity: false,

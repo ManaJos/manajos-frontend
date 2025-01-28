@@ -30,7 +30,7 @@ export const Card = React.memo(
       style={{ width: '100%' }}
     >
 
-      //image
+      {/* image */}
       <Image
         src={card.src}
         alt={card.title}
@@ -38,14 +38,14 @@ export const Card = React.memo(
         className="object-cover absolute inset-0"
       />
       
-      //hovered
+      {/* hover */}
       <div
         className={cn(
           "absolute inset-0 bg-black/50 flex items-end py-8 px-4 transition-opacity duration-300",
           hovered === index ? "opacity-100" : "opacity-0"
         )}
       >
-          // title
+          {/* title */}
           <div className="text-xl md:text-2xl font-medium bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-200">
             {card.title}
           </div>
@@ -64,7 +64,6 @@ export function FocusCards({ cards }: { cards: { src: string; title: string; siz
 
   return (
     <div className="flex flex-row flex-wrap justify-end mx-auto md:px-8 w-full h-full">
-      // iteration of cards list
       {cards.map((card, index) => (
         <div
           key={card.title}
