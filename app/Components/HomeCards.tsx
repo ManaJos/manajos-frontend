@@ -2,6 +2,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
+import { BlurFade } from "./Fade";
 
 
 /******************** home cards *******************/
@@ -20,7 +21,7 @@ export const Card = React.memo(
     size?: number | null;
   }) => (
 
-    <div
+    <div 
       onMouseEnter={() => setHovered(index)}
       onMouseLeave={() => setHovered(null)}
       className={cn(
@@ -36,6 +37,7 @@ export const Card = React.memo(
         alt={card.title}
         fill
         className="object-cover absolute inset-0"
+        
       />
       
       {/* hover */}
@@ -65,19 +67,22 @@ export function FocusCards({ cards }: { cards: { src: string; title: string; siz
   return (
     <div className="flex flex-row flex-wrap justify-end mx-auto md:px-8 w-full h-full">
       {cards.map((card, index) => (
-        <div
-          key={card.title}
-          style={{ width: `${card.size}vw` }}
-          className="m-2"
-        >
-          <Card
-            card={card}
-            index={index}
-            hovered={hovered}
-            setHovered={setHovered}
-            size={card.size}
-          />
-        </div>
+        <BlurFade key={index} delay={0.25 + index * 0.05} inView>
+          <div
+            key={card.title}
+            style={{ width: `${card.size}vw` }}
+            className="m-2 h-60 md:h-96"
+          >
+            <Card
+              card={card}
+              index={index}
+              hovered={hovered}
+              setHovered={setHovered}
+              size={card.size}
+            />
+         
+          </div>
+        </BlurFade>
       ))}
     </div>
   );
