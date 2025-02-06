@@ -11,10 +11,10 @@ interface ImageWithHoverProps {
 }
 
 const cards = [
-  { title: "Most played games", size: 70 , src: "https://media.istockphoto.com/id/1396079593/fr/photo/manette-de-jeu-et-casque-avec-espace-de-copie-rendu-3d.jpg?s=612x612&w=0&k=20&c=oi9WyINUnd-WqID0XjD_SQTF0siOcomBDehQTg2Ztoo=" },
-  { title: "Most downloaded games", size: 23 , src: "https://cdn.discordapp.com/attachments/1329760065535737889/1337169168000090203/to9bwWVz25vKWYKssTApc8-1200-80.png?ex=67a67755&is=67a525d5&hm=efd7054e130827f64d70813e4c0ec6d32c57ef6dd588862d066464ca8d2d2339&" },
-  { title: "Games on sale", size: 23 , src: "https://cdn.mos.cms.futurecdn.net/4JETjErxBnB2jNSwnrLkyQ-1200-80.jpg" },
-  { title: "All games", size: 70 , src: "https://5.imimg.com/data5/SELLER/Default/2020/11/XP/OL/UI/51145740/pc-games-dvd.jpg" },
+  { title: "Most played games", size: 70 , src: "https://cdn.discordapp.com/attachments/1329760065535737889/1337173502360424499/Placeholder1.png?ex=67a67b5e&is=67a529de&hm=7fd366d854857f534577ede4a1a02bf300f402065ad962affd9f6bf590c15fed&" },
+  { title: "Most downloaded games", size: 23 , src: "https://cdn.discordapp.com/attachments/1329760065535737889/1337173502058561566/Placeholder2.png?ex=67a67b5e&is=67a529de&hm=8317ad9ee2832ded85ba5a7e21e3b293a41d778bd45fbc7fe7ca36f6b3f7afbc&" },
+  { title: "Games on sale", size: 23 , src: "https://cdn.discordapp.com/attachments/1329760065535737889/1337173501752246393/Placeholder3.png?ex=67a67b5e&is=67a529de&hm=ea549ac48e7229e47f4e168499c710acd251090b0bb314447796b8c67526c193&" },
+  { title: "All games", size: 70 , src: "https://cdn.discordapp.com/attachments/1329760065535737889/1337173501353656373/Placeholder4.png?ex=67a67b5e&is=67a529de&hm=e50531267dd81e1f6b44b61c5cb46322d4d1e48345861547b051cdcbb4cf5e83&" },
 ];
 
 
