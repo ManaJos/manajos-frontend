@@ -85,3 +85,15 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+[data-collapsible="icon"] {
+  transition: width 0.2s ease-in-out;
+}
+
+[data-state="expanded"] {
+  width: var(--sidebar-width);
+}
+
+[data-state="collapsed"] {
+  width: var(--sidebar-width-icon);
+}
