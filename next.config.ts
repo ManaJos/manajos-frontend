@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-module.exports = {
+const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
@@ -8,16 +8,26 @@ module.exports = {
         hostname: 'media.istockphoto.com',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.discordapp.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.mos.cms.futurecdn.net',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '5.imimg.com',
+        pathname: '/**',
+      },
     ],
   },
   devIndicators: {
     buildActivity: false,
-    devIdicator: false,
   },
-}
-
-const nextConfig: NextConfig = {
-  
 };
 
 export default nextConfig;
