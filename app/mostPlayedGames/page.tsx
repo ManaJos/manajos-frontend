@@ -47,11 +47,11 @@ export default async function MostPlayedGames() {
   const data = await getData();
   return (
     <Vortex
-        backgroundColor="transparent"
+        backgroundColor="trans"
         rangeY={800}
         particleCount={20}
         baseHue={200}
-        className="flex items-center flex-col justify-center px-2 md:px-10 py-4 w-full h-screen w-screen"
+        className="flex items-center flex-col justify-center px-2 md:px-10 py-4 h-screen w-screen"
       >
       <div className="h-screen w-screen flex justify-start flex-col items-center">
         <div className="justify-center flex flex-col"> 

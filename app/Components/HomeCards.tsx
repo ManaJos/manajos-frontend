@@ -4,7 +4,6 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import { BlurFade } from "./Fade";
-import { Vortex } from "./../../components/ui/vortex";
 
 /******************** home cards *******************/
 export const Card = React.memo(
@@ -62,13 +61,7 @@ export function FocusCards({ cards }: { cards: { src: string; title: string; siz
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <Vortex
-      backgroundColor="transparent"
-      rangeY={800}
-      particleCount={20}
-      baseHue={200}
-      className="flex items-center flex-col justify-center px-2 md:px-10 py-4 w-full h-screen w-screen"
-    >
+    
     <div className="flex flex-row flex-wrap justify-end mx-auto md:px-8 w-full h-full">
       {cards.map((card, index) => (
         <div
@@ -86,6 +79,5 @@ export function FocusCards({ cards }: { cards: { src: string; title: string; siz
         </div>
       ))}
     </div>
-    </Vortex>
   );
 }

@@ -3,6 +3,7 @@
 import React from "react";
 import {Card, CardHeader, CardFooter, Image} from "@heroui/react";
 import { FocusCards } from "./Components/HomeCards";
+import { Vortex } from "./../components/ui/vortex";
 
 interface ImageWithHoverProps {
   src: string;
@@ -20,9 +21,17 @@ const cards = [
 
 export default function Home() {
   return (
-<div className="h-screen w-full flex flex-wrap justify-end items-start ">
-    <FocusCards cards={cards} />
-</div>
+    <Vortex
+      backgroundColor="transparent"
+      rangeY={800}
+      particleCount={20}
+      baseHue={200}
+      className="h-screen w-full flex flex-wrap justify-end items-start"
+    >
+    <div className="h-screen w-full flex flex-wrap justify-end items-start ">
+        <FocusCards cards={cards} />
+    </div>
+    </Vortex>
   );
 }
   

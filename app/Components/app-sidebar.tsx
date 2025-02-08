@@ -28,7 +28,7 @@ const data = {
       title: "Home",
       url: "/",
       icon: SquareTerminal,
-      isActive: true,
+      isActive: false,
       items: [
         {
           title: "About us",
@@ -75,7 +75,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         onMouseEnter={toggleSidebar}
         onMouseLeave={toggleSidebar}
         className={cn(
-          "fixed top-0 left-0 h-full bg-[#18181B] text-white transition-all duration-300 ease-in-out transform",
+          "fixed top-0 left-0 h-full bg-[#18181B] text-white transition-all overflow-hidden duration-300 ease-in-out transform",
           isOpen ? "w-64" : "w-10"
         )}
         style={{ zIndex: 1000 }}
