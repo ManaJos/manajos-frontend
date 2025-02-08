@@ -1,70 +1,75 @@
-import React from "react";
-import GameCard from "./GameCard";
-import { Vortex } from "./../../components/ui/vortex";
+"use client";
+
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import GameCard from "../components/gameCard";
 
 interface Game {
-  id: number;
-  rank: number;
   name: string;
-  peak: number;
   image: string;
+  rank: number;
+  appid: number;
+  peak_in_game: number;
+  id?: number;
+  peak?: number;
 }
 
-async function getData(): Promise<Game[]> {
-  return [
-    {
-      id: 1,
-      rank: 1,
-      name: "test",
-      peak: 30000,
-      image: "https://media.istockphoto.com/id/1334436084/fr/photo/vue-de-haut-en-bas-des-accessoires-de-jeu-illuminés-colorés-posés-sur-la-table.jpg?s=612x612&w=0&k=20&c=Bz8B7E-vchK6QE5fn8YbiwKhgEpk3l_qSwOJdExn9kc=",
-    },
-    {
-      id: 2,
-      rank: 2,
-      name: "test2",
-      peak: 20000,  
-      image: "https://media.istockphoto.com/id/1334436084/fr/photo/vue-de-haut-en-bas-des-accessoires-de-jeu-illuminés-colorés-posés-sur-la-table.jpg?s=612x612&w=0&k=20&c=Bz8B7E-vchK6QE5fn8YbiwKhgEpk3l_qSwOJdExn9kc=",
-    },
-    {
-      id: 3,
-      rank: 3,
-      name: "test3",
-      peak: 10000,
-      image: "https://media.istockphoto.com/id/1334436084/fr/photo/vue-de-haut-en-bas-des-accessoires-de-jeu-illuminés-colorés-posés-sur-la-table.jpg?s=612x612&w=0&k=20&c=Bz8B7E-vchK6QE5fn8YbiwKhgEpk3l_qSwOJdExn9kc=",
-    },
-    {
-      id: 4,
-      rank: 4,
-      name: "test4",
-      peak: 5000,
-      image: "https://media.istockphoto.com/id/1334436084/fr/photo/vue-de-haut-en-bas-des-accessoires-de-jeu-illuminés-colorés-posés-sur-la-table.jpg?s=612x612&w=0&k=20&c=Bz8B7E-vchK6QE5fn8YbiwKhgEpk3l_qSwOJdExn9kc=",
+const MostPlayedGames: React.FC = () => {
+  const [games, setGames] = useState<Game[]>([]);
+
+  // Fetch the top games list
+  useEffect(() => {
+    async function fetchGames() {
+      try {
+        const res = await fetch("http://localhost:8080/api/steam/top-games");
+        if (!res.ok) {
+          throw new Error("Failed to fetch games");
+        }
+        const data: Game[] = await res.json();
+        // Add an "id" field and normalize "peak"
+        const gamesWithId = data.map((game, index) => ({
+          ...game,
+          id: game.appid || index,
+          peak: game.peak_in_game,
+        }));
+        setGames(gamesWithId);
+      } catch (error) {
+        console.error("Error fetching games:", error);
+      }
     }
-  ];
-}
+    fetchGames();
+  }, []);
 
-export default async function MostPlayedGames() {
-  const data = await getData();
+  // Once games are loaded, prefetch individual game details in ranked order
+  
+
+  // Separate the games: the first three as big cards and the rest as small cards.
+  const bigGames = games.slice(0, 3);
+  const smallGames = games.slice(3);
+
   return (
-    <Vortex
-        backgroundColor="trans"
-        rangeY={800}
-        particleCount={20}
-        baseHue={200}
-        className="flex items-center flex-col justify-center px-2 md:px-10 py-4 h-screen w-screen"
-      >
-      <div className="h-screen w-screen flex justify-start flex-col items-center">
-        <div className="justify-center flex flex-col"> 
-          <div className="self-start m-2">
-            <h1 className="text-4xl font-bold">Most Played Games</h1>
-          </div>
-          <div className="grid grid-cols-4 gap-4 justify-center">
-            {data.map((game) => (
-              <GameCard key={game.id} game={game} />
-            ))}
-          </div>
-        </div>
+    <div className="min-h-screen p-4 ml-0 md:ml-[2.4rem]">
+      <h1 className="text-4xl font-bold text-center mb-8">Most Played Games</h1>
+
+      {/* Big cards grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+        {bigGames.map((game) => (
+          <Link key={game.id} href={`/games/${game.appid}`} className="h-full w-full inline-block">
+            <GameCard game={game} isBigCard />
+          </Link>
+        ))}
       </div>
-    </Vortex>
+
+      {/* Small cards grid */}
+      <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+        {smallGames.map((game) => (
+          <Link key={game.id} href={`/games/${game.appid}`} className="h-full w-full inline-block">
+            <GameCard game={game} />
+          </Link>
+        ))}
+      </div>
+    </div>
   );
-}
+};
+
+export default MostPlayedGames;

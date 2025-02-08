@@ -9,10 +9,10 @@ import {
   SquareTerminal,
 } from "lucide-react"
 
-import { NavMain } from "@/components/nav-main"
+import { NavMain } from "@/app/components/nav-main"
 import { cn } from "@/lib/utils";
-import { TeamSwitcher } from "@/components/team-switcher"
-import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } from "@/components/ui/sidebar"
+import { TeamSwitcher } from "@/app/components/team-switcher"
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } from "@/app/components/ui/sidebar"
 
 // This is sample data.
 const data = {
