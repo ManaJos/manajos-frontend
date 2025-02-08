@@ -26,13 +26,13 @@ const data = {
   navMain: [
     {
       title: "Home",
-      url: "#",
+      url: "/",
       icon: SquareTerminal,
       isActive: true,
       items: [
         {
           title: "About us",
-          url: "#",
+          url: "/",
         },
         {
           title: "Most played games",

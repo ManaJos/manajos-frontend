@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
-import { Card, CardHeader, CardBody, CardFooter, Image } from "@heroui/react";
+import { Card, CardHeader, CardBody, CardFooter } from "@heroui/react";
+import Image from "next/image";
 
 interface GameCardProps {
   game: {
@@ -14,18 +15,16 @@ interface GameCardProps {
 
 const GameCard: React.FC<GameCardProps> = ({ game }) => {
   return (
-    <Card className="rounded-[10px] border overflow-hidden w-56 md:w-1/3 p-4 m-2">
-      <CardHeader>
+    <Card className="rounded-[15px] bg-transparent border overflow-hidden w-80 h-64 m-2 flex flex-col hover:shadow-lg transition duration-300 ease-in-out relative group">
+      <CardHeader className="flex-shrink-0 flex flex-col items-start justify-end z-10">
+        <div>
+          <p className="text-gray-300 font-bold text-lg">{game.rank}</p>
+          <p className="text-gray-300 font-bold">Peak: {game.peak}</p>
+        </div>
         <h3 className="text-lg font-bold">{game.name}</h3>
       </CardHeader>
-      <Image src={game.image} alt={game.name} className="object-cover w-full h-48" />
-      <CardBody>
-        <p>Rank: {game.rank}</p>
-        <p>Peak: {game.peak}</p>
-      </CardBody>
-      <CardFooter>
-        {/* Ajoutez ici tout autre contenu de pied de carte si nécessaire */}
-      </CardFooter>
+      <Image src={game.image} alt={game.name} layout="fill" objectFit="cover" className="absolute inset-0 w-full h-full" />
+      <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
     </Card>
   );
 };
