@@ -18,13 +18,13 @@ interface GameDetails {
 export default async function GameDetailPage({
   params,
 }: {
-  params: { appid: string };
+  params: { appId: number };
 }) {
-  const { appid } = params;
+  const { appId } = params;
 
   // Fetch game details from the backend API
   const res = await fetch(
-    `http://localhost:8080/api/steam/games/${appid}`,
+    `http://localhost:8080/api/steam/games/${appId}`,
     { cache: "no-store" }
   );
 

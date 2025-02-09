@@ -8,7 +8,7 @@ interface Game {
   name: string;
   image: string;
   rank: number;
-  appid: number;
+  appId: number;
   peak_in_game: number;
   id?: number;
   peak?: number;
@@ -29,7 +29,7 @@ const MostPlayedGames: React.FC = () => {
         // Add an "id" field and normalize "peak"
         const gamesWithId = data.map((game, index) => ({
           ...game,
-          id: game.appid || index,
+          id: game.appId || index,
           peak: game.peak_in_game,
         }));
         setGames(gamesWithId);
