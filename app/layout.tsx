@@ -3,8 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import * as React from "react";
 import LayoutHeroUi from "./layoutHeroUi";
-import { SidebarProvider } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/app/Components/app-sidebar";
+import { SidebarProvider } from "./components/ui/sidebar";
+import { AppSidebar } from "@/app/components/app-sidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-[#0d020e] overflow-hidden">
+      <body className="bg-[#0d020e]">
         <SidebarProvider>
           <AppSidebar />
           <LayoutHeroUi>
