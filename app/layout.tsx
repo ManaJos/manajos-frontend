@@ -27,10 +27,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    
     <html lang="en">
-      <body className="bg-[#0d020e]">
+      <body className="bg-[#0d020e] overflow-x-hidden m-0 p-0">
         <SidebarProvider>
-          <AppSidebar />
+          <AppSidebar/>
           <LayoutHeroUi>
             {children}
           </LayoutHeroUi>

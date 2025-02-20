@@ -35,7 +35,8 @@ export default async function GameDetailPage({
   const gameDetails: GameDetails = await res.json();
 
   return (
-    <main className="min-h-screen flex items-center justify-center p-6 pl-80">
+    <div className="w-screen">
+    <main className="min-h-screen flex items-center justify-center p-6">
       <article className="bg-gray-800 rounded-xl shadow-lg overflow-hidden max-w-3xl w-full">
         {/* Header Section */}
         <header className="relative">
@@ -78,5 +79,6 @@ export default async function GameDetailPage({
         </section>
       </article>
     </main>
+    </div>
   );
 }

@@ -13,6 +13,7 @@ import { NavMain } from "@/app/components/nav-main"
 import { cn } from "@/lib/utils";
 import { TeamSwitcher } from "@/app/components/team-switcher"
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } from "@/app/components/ui/sidebar"
+import { url } from "inspector";
 
 // This is sample data.
 const data = {

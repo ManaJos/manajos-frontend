@@ -97,3 +97,19 @@ body {
 [data-state="collapsed"] {
   width: var(--sidebar-width-icon);
 }
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: inherit;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #9633c4;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c34dfa;
+}
