@@ -1,19 +1,16 @@
-"use client"
+"use client";
 import * as React from "react";
-import {HeroUIProvider} from "@heroui/react";
-import {ThemeProvider as NextThemesProvider} from "next-themes";
-
+import { HeroUIProvider } from "@heroui/react";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
 
 export default function LayoutHeroUi({
-    children,
-  }: Readonly<{
-    children: React.ReactNode;
-  }>) {
-    return (
-        <HeroUIProvider>
-           
-            {children}
-
-        </HeroUIProvider>
-    );
-  }
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <NextThemesProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+      <HeroUIProvider>{children}</HeroUIProvider>
+    </NextThemesProvider>
+  );
+}

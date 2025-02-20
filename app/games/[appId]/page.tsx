@@ -37,7 +37,7 @@ export default async function GameDetailPage({
   return (
     <div className="w-screen">
     <main className="min-h-screen flex items-center justify-center p-6">
-      <article className="bg-gray-800 rounded-xl shadow-lg overflow-hidden max-w-3xl w-full">
+      <article className="bg-gray-700/15 rounded-xl shadow-lg overflow-hidden max-w-3xl w-full">
         {/* Header Section */}
         <header className="relative">
           <img
@@ -55,14 +55,14 @@ export default async function GameDetailPage({
 
         {/* Details Section */}
         <section className="p-6">
-          <p className="text-gray-300 text-lg mb-4">
+          <p className=" text-lg mb-4">
             {gameDetails.short_description}
           </p>
           <div className="mb-6">
             <span className="text-purple-400 font-semibold">
               Peak Players:{" "}
             </span>
-            <span className="text-purple-200">
+            <span className="">
               {gameDetails.peak_in_game.toLocaleString()} players
             </span>
           </div>
@@ -70,7 +70,7 @@ export default async function GameDetailPage({
           {/* Screenshots Carousel */}
           {gameDetails.screenshots && gameDetails.screenshots.length > 0 && (
             <div className="mt-8">
-              <h2 className="text-2xl font-semibold text-white mb-4">
+              <h2 className="text-2xl font-semibold mb-4">
                 Screenshots
               </h2>
               <ScreenshotCarousel screenshots={gameDetails.screenshots} />
