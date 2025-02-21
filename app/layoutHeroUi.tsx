@@ -9,7 +9,7 @@ export default function LayoutHeroUi({
   children: React.ReactNode;
 }) {
   return (
-    <NextThemesProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+    <NextThemesProvider attribute="class" defaultTheme="system" enableSystem={false}>
       <HeroUIProvider>{children}</HeroUIProvider>
     </NextThemesProvider>
   );

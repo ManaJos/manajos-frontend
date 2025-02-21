@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className="overflow-x-hidden m-0 p-0">
         <SidebarProvider>
           <LayoutHeroUi>
